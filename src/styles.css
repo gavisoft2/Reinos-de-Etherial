@@ -13,3 +13,11 @@ body{background:#070a07}.game-shell{max-width:1180px;margin:auto;border-color:#8
 .quest{top:58px;min-width:235px}.zone-badge{border-radius:2px;background:linear-gradient(#211b12ee,#0c0d0bee);font-family:Georgia,serif}
 .hotbar{min-height:72px;align-items:center}.hotbar button{min-width:66px;min-height:54px;background:radial-gradient(circle at 50% 30%,#49381f,#18140e 70%);border:1px solid #b38a45}
 @media(max-width:700px){.player-card{display:none}}
+
+/* V23 full-screen MMORPG composition */
+#app{max-width:1440px;padding:0}.game-shell{max-width:1380px}.hud{height:68px;grid-template-columns:300px 1fr 300px}.stage canvas{min-height:610px;object-fit:cover}.player-card{width:215px;padding-left:52px}.player-card:before{width:36px;height:36px}
+.quest{left:12px;right:auto;top:64px;width:230px;max-width:230px}.quest h4{margin:0 0 8px;color:#e9c876;font-family:Georgia,serif}.quest hr{border:0;border-top:1px solid #4f422c;margin:8px 0}.quest b{color:#e3bd62}.quest span{margin-top:3px;color:#ddd}
+.world-routes{position:absolute;right:12px;top:122px;display:grid;gap:6px;pointer-events:none}.world-routes span{background:#12100de8;border:1px solid #9d773a;padding:7px 10px;color:#e6cf9c;font:11px Georgia,serif;box-shadow:0 3px 10px #0008}
+.hotbar{padding-right:390px}.mmomenu{position:absolute;z-index:5;right:18px;bottom:8px;display:flex;gap:6px}.mmomenu button{width:58px;height:54px;background:linear-gradient(#2b2419,#12100c);border:1px solid #a17b3e;color:#e6d5ae;border-radius:4px;font-size:18px}.mmomenu small{display:block;font-size:8px;color:#d0bd94}
+.chatbox{bottom:12px;width:360px}.zone-badge{top:10px}.toast{z-index:8}
+@media(max-width:900px){.mmomenu,.world-routes{display:none}.hotbar{padding-right:9px}.quest{left:auto;right:8px;top:8px}.stage canvas{min-height:0}.hud{height:auto;grid-template-columns:1fr 1fr}}
