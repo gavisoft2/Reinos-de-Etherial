@@ -5,3 +5,11 @@
 
 /* V16 fantasy MMORPG presentation */
 .hud{min-height:64px;border-bottom:1px solid #c39a4a}.hud>div:first-child strong{font-family:Georgia,serif;font-size:16px}.stats small{margin-top:4px;font-size:9px;color:#aa956b}.quest{border:1px solid #b99147;background:linear-gradient(135deg,#12130feF,#211a10eF);box-shadow:inset 0 0 0 1px #3c2c18,0 5px 18px #0008}.hotbar button{border-color:#b58b45;border-radius:3px}.panel{background:linear-gradient(#201b13,#11130f);border-color:#c19a53}
+
+/* V22 master visual direction */
+body{background:#070a07}.game-shell{max-width:1180px;margin:auto;border-color:#8e6b31;box-shadow:0 18px 70px #000}.stage{overflow:hidden}.stage canvas{filter:saturate(.92) contrast(1.06)}
+.player-card{position:absolute;z-index:3;left:12px;top:12px;width:175px;padding:8px 12px 8px 46px;background:linear-gradient(90deg,#17130fef,#272015e8);border:1px solid #b48a42;box-shadow:0 4px 16px #000;border-radius:2px;color:#efd49a;pointer-events:none}.player-card:before{content:"";position:absolute;left:8px;top:6px;width:30px;height:30px;border-radius:50%;border:2px solid #b48a42;background:radial-gradient(circle,#4f6680,#171b1c)}.player-card small{display:block;color:#bba77c;font-size:9px}
+.chatbox{width:330px;border-color:#9c773d;background:#0b0d0be8}.chat-tabs{display:flex;gap:14px;border-bottom:1px solid #55472f;padding-bottom:5px;margin-bottom:5px}.chat-tabs span{color:#8f8a7d}
+.quest{top:58px;min-width:235px}.zone-badge{border-radius:2px;background:linear-gradient(#211b12ee,#0c0d0bee);font-family:Georgia,serif}
+.hotbar{min-height:72px;align-items:center}.hotbar button{min-width:66px;min-height:54px;background:radial-gradient(circle at 50% 30%,#49381f,#18140e 70%);border:1px solid #b38a45}
+@media(max-width:700px){.player-card{display:none}}
