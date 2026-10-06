@@ -13,6 +13,17 @@ create(){
  [[235,760],[290,850],[220,955],[300,1070],[1045,760],[990,850],[1060,955],[980,1070]].forEach(p=>{this.add.ellipse(p[0]+8,p[1]+45,82,24,0x000000,.28).setDepth(p[1]-2);this.add.image(p[0],p[1],"oakArt").setScale(.55).setDepth(p[1])});
  [[390,770],[890,770],[390,920],[890,920],[390,1070],[890,1070]].forEach(p=>this.add.image(p[0],p[1],"lanternArt").setScale(.72).setDepth(p[1]+8));
  this.add.text(640,760,"AVENIDA REAL",{fontFamily:"Georgia",fontSize:"16px",letterSpacing:4,color:"#e9d49a",stroke:"#000",strokeThickness:4}).setOrigin(.5).setDepth(800);
+ // Plaza central más monumental: anillos, agua, estatua y profundidad de sombras.
+ this.add.ellipse(640,365,470,255,0x000000,.20).setDepth(5);
+ this.add.ellipse(640,342,390,210,0xb9aa88,.96).setStrokeStyle(8,0x5b5040,.95).setDepth(6);
+ this.add.ellipse(640,342,330,166,0x315f70,.95).setStrokeStyle(6,0xd0bd8c,.9).setDepth(7);
+ this.add.ellipse(640,332,270,120,0x6da3ad,.42).setDepth(8);
+ this.add.ellipse(640,350,132,70,0x4b4032,.45).setDepth(9);
+ this.add.image(640,310,"fountainArt").setScale(1.28).setDepth(350);
+ this.add.circle(640,286,92,0xffdf8a,.07).setBlendMode(Phaser.BlendModes.ADD).setDepth(340);
+ this.add.circle(640,286,46,0xffe9aa,.09).setBlendMode(Phaser.BlendModes.ADD).setDepth(341);
+ [[470,295],[810,295],[470,425],[810,425]].forEach((p,i)=>{this.add.image(p[0],p[1],"bannerArt").setScale(.72).setDepth(p[1]+12);this.add.circle(p[0],p[1]+35,38,0xffc86a,.05).setBlendMode(Phaser.BlendModes.ADD).setDepth(p[1]+5)});
+ this.add.text(640,455,"FUENTE DE LOS FUNDADORES",{fontFamily:"Georgia",fontSize:"13px",letterSpacing:2,color:"#ead7a2",stroke:"#000",strokeThickness:4}).setOrigin(.5).setDepth(500);
  this.add.image(640,1215,"gateArt").setScale(.82).setFlipY(false).setDepth(1220);
  this.add.text(640,1160,"SUR · TIERRAS SALVAJES",{fontFamily:"Georgia",fontSize:"12px",color:"#e8d39a",backgroundColor:"#15120fbb",padding:{x:10,y:5}}).setOrigin(.5).setDepth(1230);
  [[1000,245],[1110,270],[1185,315]].forEach((p,i)=>this.add.image(p[0],p[1],"stallArt").setScale(.62).setDepth(p[1]+5));
