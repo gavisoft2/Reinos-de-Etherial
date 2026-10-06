@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Reinos de Etherial</title>
+<link rel="stylesheet" href="src/styles.css">
+</head>
+<body>
+<main id="app">
+  <section class="game-shell">
+    <header class="hud">
+      <div><strong>REINOS DE ETHERIAL</strong><small id="zone">Aldea de Lumen</small></div>
+      <div class="bars">
+        <label>HP <progress id="hp" max="100" value="100"></progress></label>
+        <label>MP <progress id="mp" max="100" value="60"></progress></label>
+        <label>EXP <progress id="xp" max="100" value="0"></progress></label>
+      </div>
+      <div class="stats">Nv. <b id="level">1</b> · Oro <b id="gold">25</b></div>
+    </header>
+    <div class="stage">
+      <canvas id="game" width="960" height="540" aria-label="Reinos de Etherial"></canvas>
+      <aside class="help"><b>Controles</b><br>WASD / flechas: mover<br>Espacio: atacar<br>E: interactuar<br>1–4: habilidades</aside>
+    </div>
+    <nav class="hotbar" aria-label="Habilidades">
+      <button data-skill="1">1<br><span>Corte</span></button>
+      <button data-skill="2">2<br><span>Golpe</span></button>
+      <button data-skill="3">3<br><span>Guardia</span></button>
+      <button data-skill="4">4<br><span>Furia</span></button>
+    </nav>
+  </section>
+</main>
+<script src="src/game.js"></script>
+</body>
+</html>
