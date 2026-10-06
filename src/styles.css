@@ -42,3 +42,6 @@ body{background:#050706;font-family:Georgia,serif}#app{max-width:none}.game-shel
 
 /* V33 isometric depth pass */
 .stage canvas{transform:translateZ(0)}.stage{perspective:1200px}.minimap-frame{border-radius:14px 14px 4px 4px}.world-routes span{border-radius:14px 3px 14px 3px}.social-rail button{border-radius:3px 12px 3px 12px}.quest{border-radius:4px 16px 4px 4px}.chatbox{border-radius:4px 14px 4px 4px}.hotbar button:hover,.mmomenu button:hover{filter:brightness(1.2);transform:translateY(-1px)}
+
+/* V34 cinematic MMORPG feedback */
+.area-title{position:absolute;z-index:7;left:50%;top:26%;transform:translate(-50%,-20px);text-align:center;opacity:0;pointer-events:none;transition:.45s;text-shadow:0 3px 8px #000}.area-title.show{opacity:1;transform:translate(-50%,0)}.area-title small{display:block;font:10px Georgia,serif;letter-spacing:4px;color:#d8c99f}.area-title b{display:block;margin-top:5px;font:700 34px Georgia,serif;letter-spacing:7px;color:#f2d28b;border-bottom:1px solid #b38a48;padding:0 35px 8px}.hotbar button:active,.mmomenu button:active{transform:translateY(2px);filter:brightness(1.35)}.player-card,.quest,.minimap-frame,.chatbox{box-shadow:0 7px 24px #0009,inset 0 0 18px #0005}
