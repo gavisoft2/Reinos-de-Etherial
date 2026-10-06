@@ -1,0 +1,21 @@
+export class LumenScene extends Phaser.Scene{
+constructor(){super("Lumen")}
+create(){
+ this.makeTextures(); this.cameras.main.setBackgroundColor("#29432c");
+ this.add.image(640,360,"ground");
+ this.add.image(640,315,"plaza");
+ this.add.image(640,330,"fountain").setDepth(20);
+ const buildings=[[250,180,"POSADA",0x344d72],[1030,180,"MERCADO",0x783e35],[250,560,"HERRERÍA",0x694630],[1030,560,"GREMIO",0x4d643f]];
+ buildings.forEach(b=>this.building(...b));
+ [[110,100],[1170,100],[90,610],[1190,620],[390,100],[890,100],[410,610],[870,610]].forEach(p=>this.add.image(...p,"tree").setDepth(p[1]));
+ this.player=this.physics.add.sprite(640,520,"hero").setDepth(100).setCollideWorldBounds(true);
+ this.player.body.setSize(28,30).setOffset(18,50);
+ this.cursors=this.input.keyboard.createCursorKeys();this.keys=this.input.keyboard.addKeys("W,A,S,D");
+ this.cameras.main.startFollow(this.player,true,.08,.08);this.cameras.main.setBounds(0,0,1280,720);
+ this.ui();
+}
+update(){let x=0,y=0;if(this.cursors.left.isDown||this.keys.A.isDown)x=-1;if(this.cursors.right.isDown||this.keys.D.isDown)x=1;if(this.cursors.up.isDown||this.keys.W.isDown)y=-1;if(this.cursors.down.isDown||this.keys.S.isDown)y=1;let v=new Phaser.Math.Vector2(x,y).normalize().scale(190);this.player.setVelocity(v.x,v.y);this.player.setDepth(this.player.y+100)}
+building(x,y,label,roof){let shadow=this.add.ellipse(x,y+92,270,50,0x000000,.28).setDepth(y-2);let base=this.add.rectangle(x,y+25,260,150,0xb8a27c).setStrokeStyle(5,0x62533c).setDepth(y);let r=this.add.triangle(x,y-72,0,100,135,0,270,100,roof).setDepth(y+1);this.add.rectangle(x,y+42,58,90,0x33251b).setDepth(y+2);this.add.text(x,y-112,label,{fontFamily:"Georgia",fontSize:"19px",color:"#efd58d",backgroundColor:"#17130dcc",padding:{x:12,y:5}}).setOrigin(.5).setDepth(y+5)}
+ui(){this.add.rectangle(150,64,275,92,0x0b0d0b,.92).setStrokeStyle(2,0xa77e38).setScrollFactor(0).setDepth(2000);this.add.text(30,27,"🏹  Arquero · Nv. 1",{fontFamily:"Georgia",fontSize:"18px",color:"#f0d58d"}).setScrollFactor(0).setDepth(2001);this.add.text(30,54,"HP  ████████████\nMP  ██████████\nEXP ███",{fontFamily:"monospace",fontSize:"12px",color:"#ddd"}).setScrollFactor(0).setDepth(2001);this.add.text(640,26,"LUMEN",{fontFamily:"Georgia",fontSize:"25px",color:"#f0d58d",backgroundColor:"#11100ddd",padding:{x:28,y:7}}).setOrigin(.5).setScrollFactor(0).setDepth(2001);this.add.text(25,130,"MISIONES\n\n✦ Bienvenido a Lumen\n  Habla con Aldric\n\n✦ El Bosque Eterno\n  Explora la salida norte",{fontFamily:"Georgia",fontSize:"14px",lineSpacing:8,color:"#e7d4a1",backgroundColor:"#11100ddd",padding:{x:15,y:14}}).setScrollFactor(0).setDepth(2001);this.add.text(640,680,"[ 1 ] Ataque   [ 2 ] Disparo   [ 3 ] Evasión   [ 4 ] Especial",{fontFamily:"Georgia",fontSize:"15px",color:"#ead49a",backgroundColor:"#0b0c0bee",padding:{x:20,y:10}}).setOrigin(.5).setScrollFactor(0).setDepth(2001)}
+makeTextures(){let g=this.make.graphics({x:0,y:0,add:false});g.fillStyle(0x476c3c).fillRect(0,0,1280,720);g.lineStyle(1,0x58784a,.4);for(let x=0;x<1280;x+=64)g.lineBetween(x,0,x,720);for(let y=0;y<720;y+=64)g.lineBetween(0,y,1280,y);g.generateTexture("ground",1280,720);g.clear();g.fillStyle(0x8f8773).fillEllipse(300,180,590,340);g.lineStyle(6,0xb5aa8d).strokeEllipse(300,180,560,310);g.generateTexture("plaza",600,360);g.clear();g.fillStyle(0x6b6c67).fillEllipse(100,135,190,70);g.fillStyle(0x5ba7bd).fillEllipse(100,125,160,55);g.fillStyle(0xa6a59c).fillRect(92,48,16,82);g.fillTriangle(100,5,78,60,122,60);g.generateTexture("fountain",200,170);g.clear();g.fillStyle(0x493321).fillRect(43,70,14,80);g.fillStyle(0x315b36).fillCircle(50,45,42);g.fillStyle(0x477a43).fillCircle(28,57,28);g.fillCircle(75,57,30);g.generateTexture("tree",100,150);g.clear();g.fillStyle(0x121715).fillEllipse(32,76,55,16);g.fillStyle(0x324f3a).fillRect(18,28,28,48);g.fillStyle(0xc69a72).fillCircle(32,20,14);g.fillStyle(0x18251c).fillTriangle(32,4,17,26,47,26);g.fillStyle(0x7b6139).fillRect(47,40,6,42);g.generateTexture("hero",64,88)}
+}
