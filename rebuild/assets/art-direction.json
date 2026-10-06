@@ -1,0 +1,13 @@
+{
+  "version": 1,
+  "style": "high-fantasy pre-rendered 2.5D",
+  "camera": "three-quarter isometric",
+  "characterScale": 96,
+  "directions": ["down","left","right","up"],
+  "futureAnimations": ["idle","walk","attack","skill","hit","death"],
+  "classes": {
+    "warrior": {"weapon":"sword","silhouette":"heavy armor"},
+    "archer": {"weapon":"bow","silhouette":"cloak and leather armor"},
+    "mage": {"weapon":"staff","silhouette":"robes and arcane ornaments"}
+  }
+}
