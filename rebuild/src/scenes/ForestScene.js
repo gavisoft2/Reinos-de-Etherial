@@ -1,0 +1,17 @@
+export class ForestScene extends Phaser.Scene{
+constructor(){super("Forest")}
+preload(){this.load.svg("forestGrass","assets/environment/grass.svg");this.load.svg("forestOak","assets/nature/oak.svg");this.load.svg("forestArcher","assets/characters/archer.svg")}
+create(){
+ this.physics.world.setBounds(0,0,1280,720);this.add.tileSprite(640,360,1280,720,"forestGrass");
+ this.add.text(640,38,"BOSQUE ETERNO",{fontFamily:"Georgia",fontSize:"28px",color:"#e6d19a",stroke:"#000",strokeThickness:5}).setOrigin(.5).setScrollFactor(0).setDepth(3000);
+ this.add.text(640,68,"Frontera norte del Reino de Etherial",{fontFamily:"Georgia",fontSize:"13px",color:"#b9c69f",stroke:"#000",strokeThickness:3}).setOrigin(.5).setScrollFactor(0).setDepth(3000);
+ for(let i=0;i<28;i++){let x=Phaser.Math.Between(45,1235),y=Phaser.Math.Between(80,680);if(Math.abs(x-640)<145)continue;this.add.ellipse(x,y+55,90,24,0x000000,.25).setDepth(y-2);this.add.image(x,y,"forestOak").setScale(Phaser.Math.FloatBetween(.48,.72)).setDepth(y)}
+ let road=this.add.graphics();road.fillStyle(0x716b5b,.88);road.beginPath();road.moveTo(560,720);road.lineTo(590,0);road.lineTo(700,0);road.lineTo(735,720);road.closePath();road.fillPath();road.lineStyle(5,0xa69b7e,.45);road.strokePath();
+ this.makeWolf();this.wolves=this.physics.add.group();[[430,260],[835,250],[390,510],[870,500],[690,360]].forEach(p=>{let w=this.wolves.create(p[0],p[1],"wolf");w.homeX=p[0];w.homeY=p[1];w.hp=55;w.setDepth(p[1]);w.body.setCircle(25,10,16);this.add.text(p[0],p[1]-45,"Lobo Nv. 3",{fontFamily:"Georgia",fontSize:"12px",color:"#eadfca",stroke:"#000",strokeThickness:3}).setOrigin(.5).setDepth(p[1]+2)});
+ this.player=this.physics.add.sprite(640,625,"forestArcher").setScale(.82).setCollideWorldBounds(true).setDepth(700);this.player.body.setSize(30,34).setOffset(40,102);
+ this.keys=this.input.keyboard.addKeys("W,A,S,D,E");this.cursors=this.input.keyboard.createCursorKeys();this.cameras.main.startFollow(this.player,true,.08,.08);
+ this.add.text(640,690,"SUR · REGRESAR A LUMEN",{fontFamily:"Georgia",fontSize:"13px",color:"#f0d58d",backgroundColor:"#15120fcc",padding:{x:12,y:6}}).setOrigin(.5).setScrollFactor(0).setDepth(3000);
+}
+makeWolf(){let g=this.make.graphics({add:false});g.fillStyle(0x111111,.25).fillEllipse(40,61,65,13);g.fillStyle(0x575b59).fillEllipse(42,39,61,34);g.fillStyle(0x6e7470).fillTriangle(13,36,32,18,39,42);g.fillTriangle(64,31,73,11,78,39);g.fillStyle(0xd8c36d).fillCircle(24,31,3);g.fillCircle(63,29,3);g.generateTexture("wolf",82,70)}
+update(){let x=0,y=0;if(this.cursors.left.isDown||this.keys.A.isDown)x=-1;if(this.cursors.right.isDown||this.keys.D.isDown)x=1;if(this.cursors.up.isDown||this.keys.W.isDown)y=-1;if(this.cursors.down.isDown||this.keys.S.isDown)y=1;let v=new Phaser.Math.Vector2(x,y).normalize().scale(190);this.player.setVelocity(v.x,v.y);this.player.setDepth(this.player.y+100);for(const w of this.wolves.getChildren()){let d=Phaser.Math.Distance.Between(w.x,w.y,this.player.x,this.player.y);if(d<150)this.physics.moveToObject(w,this.player,42);else if(Phaser.Math.Distance.Between(w.x,w.y,w.homeX,w.homeY)>8)this.physics.moveTo(w,w.homeX,w.homeY,22);else w.setVelocity(0);w.setDepth(w.y)}if(this.player.y>700)this.scene.start("Lumen",{fromForest:true})}
+}
