@@ -39,3 +39,6 @@ body{background:#050706;font-family:Georgia,serif}#app{max-width:none}.game-shel
 
 /* V31 living world polish */
 .chat-input{margin-top:8px;padding:8px 10px;border:1px solid #51452f;background:#090a09;color:#777;font:11px system-ui,sans-serif;display:flex;justify-content:space-between}.chat-input b{color:#c9b486;font-size:15px}.chat-tabs span,.chat-tabs b{padding:3px 5px}.chat-tabs b{border-bottom:2px solid #c79b49}.stage:before{content:"";position:absolute;z-index:1;inset:0;pointer-events:none;background:linear-gradient(115deg,transparent 0 45%,rgba(255,211,130,.035) 52%,transparent 60%);mix-blend-mode:screen}.minimap-frame{backdrop-filter:blur(2px)}.quest,.chatbox,.world-routes span,.mmomenu button{backdrop-filter:blur(3px)}
+
+/* V33 isometric depth pass */
+.stage canvas{transform:translateZ(0)}.stage{perspective:1200px}.minimap-frame{border-radius:14px 14px 4px 4px}.world-routes span{border-radius:14px 3px 14px 3px}.social-rail button{border-radius:3px 12px 3px 12px}.quest{border-radius:4px 16px 4px 4px}.chatbox{border-radius:4px 14px 4px 4px}.hotbar button:hover,.mmomenu button:hover{filter:brightness(1.2);transform:translateY(-1px)}
