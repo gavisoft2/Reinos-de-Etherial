@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720">
+<defs>
+ <linearGradient id="g" x2="0" y2="1"><stop stop-color="#263c2d"/><stop offset="1" stop-color="#16271e"/></linearGradient>
+ <linearGradient id="s" x2="0" y2="1"><stop stop-color="#b7aa8d"/><stop offset="1" stop-color="#716956"/></linearGradient>
+ <linearGradient id="r" x2="0" y2="1"><stop stop-color="#40506a"/><stop offset="1" stop-color="#202c40"/></linearGradient>
+ <radialGradient id="lamp"><stop stop-color="#ffd27a" stop-opacity=".7"/><stop offset="1" stop-color="#ff9d35" stop-opacity="0"/></radialGradient>
+ <pattern id="stone" width="48" height="28" patternUnits="userSpaceOnUse"><rect width="48" height="28" fill="#8d8673"/><path d="M0 1h48M0 27h48M24 1v13M0 14h48M10 14v13M38 14v13" stroke="#686354" stroke-width="2" opacity=".65"/></pattern>
+</defs>
+<rect width="1280" height="720" fill="url(#g)"/>
+<!-- city wall -->
+<path d="M0 70h500V15h280v55h500v650H0z" fill="#4a5147" opacity=".75"/>
+<path d="M0 88h490V28h300v60h490" fill="none" stroke="#8e8c78" stroke-width="20"/>
+<!-- central paved civic space -->
+<path d="M470 0h340l-55 190 190 90-65 330-240 110-240-110-65-330 190-90z" fill="url(#stone)" stroke="#b2a789" stroke-width="8"/>
+<!-- top monumental gate -->
+<path d="M510 0v118h64V67q0-55 66-55t66 55v51h64V0" fill="#77796d" stroke="#3f443d" stroke-width="9"/>
+<path d="M548 0 585 55h-74zm184 0 37 55h-74z" fill="#27364d"/>
+<path d="M622 6h36v90h-36z" fill="#171d1a"/>
+<!-- buildings left -->
+<g stroke="#332820" stroke-width="7">
+ <path d="M0 105h365v175H0z" fill="#9b7d58"/><path d="M0 112 180 18l205 94-35 45-170-72L20 157z" fill="url(#r)"/>
+ <path d="M0 430h350v250H0z" fill="#886f52"/><path d="M0 442 175 345l205 97-35 45-170-73L20 487z" fill="url(#r)"/>
+ <path d="M930 105h350v175H930z" fill="#9c805d"/><path d="m900 112 190-94 190 94v50l-190-77-165 77z" fill="#5c3030"/>
+ <path d="M930 430h350v250H930z" fill="#93805f"/><path d="m900 442 190-97 190 97v50l-190-78-165 78z" fill="url(#r)"/>
+</g>
+<!-- timber beams/windows -->
+<g stroke="#3d2b20" stroke-width="8" fill="none"><path d="M35 130v120m95-155v165m95-165v165m95-130v140M35 455v190m100-220v220m105-220v220M970 125v135m100-165v165m100-165v165M970 455v190m100-220v220m105-220v220"/></g>
+<g fill="#ffc76b" stroke="#3d2b20" stroke-width="5"><rect x="55" y="170" width="48" height="55"/><rect x="250" y="165" width="48" height="55"/><rect x="55" y="520" width="48" height="60"/><rect x="250" y="510" width="48" height="60"/><rect x="980" y="165" width="48" height="55"/><rect x="1160" y="170" width="48" height="55"/><rect x="980" y="510" width="48" height="60"/><rect x="1160" y="520" width="48" height="60"/></g>
+<!-- market awnings -->
+<g stroke="#4d2d27" stroke-width="5"><path d="M940 245h150l-15 62H925z" fill="#b74642"/><path d="M1090 245h170l-10 62h-175z" fill="#d8c59a"/><path d="M940 245h30v62h-45zm60 0h30v62h-30zm90 0h35v62h-35zm70 0h35v62h-35" fill="#efe1ba"/></g>
+<!-- forge fire -->
+<ellipse cx="185" cy="535" rx="105" ry="85" fill="url(#lamp)"/><path d="M110 565q30-75 55 0 30-95 60 0z" fill="#ff9d35"/><path d="M135 565q22-48 40 0 18-60 33 0z" fill="#ffe189"/>
+<!-- central fountain -->
+<ellipse cx="640" cy="430" rx="148" ry="62" fill="#536c71" stroke="#c4b89a" stroke-width="10"/>
+<ellipse cx="640" cy="418" rx="122" ry="46" fill="#47a9b8" opacity=".75"/>
+<path d="M608 415h64l-12-128h-40z" fill="#a8a69a" stroke="#5f625d" stroke-width="6"/>
+<circle cx="640" cy="270" r="25" fill="#b8b5a8"/>
+<path d="M625 296 575 335l34-66 31 25 31-25 34 66-50-39 6 95h-42z" fill="#aaa99f" stroke="#5d605a" stroke-width="6"/>
+<path d="M610 337q-55 35-70 72M670 337q55 35 70 72" fill="none" stroke="#9deaff" stroke-width="5" opacity=".8"/>
+<!-- gardens -->
+<g fill="#315d35" stroke="#a59b7d" stroke-width="6"><ellipse cx="470" cy="390" rx="82" ry="38"/><ellipse cx="810" cy="390" rx="82" ry="38"/><ellipse cx="475" cy="520" rx="70" ry="34"/><ellipse cx="805" cy="520" rx="70" ry="34"/></g>
+<g fill="#73964d"><circle cx="440" cy="380" r="22"/><circle cx="490" cy="392" r="28"/><circle cx="790" cy="380" r="24"/><circle cx="835" cy="395" r="25"/><circle cx="470" cy="515" r="27"/><circle cx="810" cy="515" r="27"/></g>
+<!-- banners -->
+<g fill="#183f7a" stroke="#d0a54d" stroke-width="4"><path d="M480 85h45v125l-22 22-23-22z"/><path d="M755 85h45v125l-22 22-23-22z"/><path d="M880 500h42v125l-21 20-21-20z"/></g>
+<g fill="#d7b25c"><path d="m503 112 8 18 20 2-15 13 5 20-18-10-18 10 5-20-15-13 20-2z"/><path d="m778 112 8 18 20 2-15 13 5 20-18-10-18 10 5-20-15-13 20-2z"/></g>
+<!-- lamps -->
+<g fill="#ffc15d"><circle cx="410" cy="290" r="12"/><circle cx="870" cy="290" r="12"/><circle cx="410" cy="585" r="12"/><circle cx="870" cy="585" r="12"/></g>
+<g fill="url(#lamp)"><circle cx="410" cy="290" r="75"/><circle cx="870" cy="290" r="75"/><circle cx="410" cy="585" r="75"/><circle cx="870" cy="585" r="75"/></g>
+<!-- teleporter -->
+<ellipse cx="1135" cy="625" rx="105" ry="45" fill="#147bba" opacity=".6" stroke="#63d8ff" stroke-width="5"/><path d="m1135 515-28 92 28 42 28-42z" fill="#4bdcff" stroke="#d5faff" stroke-width="5"/>
+<!-- labels -->
+<g font-family="Georgia" text-anchor="middle" fill="#f4dda0" stroke="#17130e" stroke-width="4" paint-order="stroke" font-weight="bold">
+<text x="190" y="135" font-size="22">POSADA</text><text x="1090" y="135" font-size="22">MERCADO</text><text x="190" y="470" font-size="22">HERRERÍA</text><text x="1090" y="470" font-size="22">CASA DEL GREMIO</text>
+</g>
+</svg>
