@@ -36,3 +36,6 @@ body{background:#050706;font-family:Georgia,serif}#app{max-width:none}.game-shel
 .mmomenu{right:15px;bottom:10px;gap:5px}.mmomenu button{width:62px;height:60px;border:2px solid #6f552b;background:radial-gradient(circle at 50% 25%,#3d3222,#12100d 72%);font-size:20px}.mmomenu small{font-family:Georgia,serif;color:#e7d1a2}
 .panel{border:2px solid #a27d3c;background:linear-gradient(145deg,#201a12,#0c0d0a);font-family:Georgia,serif}
 @media(max-width:1000px){.stage{min-height:auto}.stage canvas{min-height:0}.minimap-frame,.social-rail,.world-routes{display:none}.hotbar{padding:9px}.quest{width:210px}.chatbox{width:300px}.mmomenu{display:none}}
+
+/* V31 living world polish */
+.chat-input{margin-top:8px;padding:8px 10px;border:1px solid #51452f;background:#090a09;color:#777;font:11px system-ui,sans-serif;display:flex;justify-content:space-between}.chat-input b{color:#c9b486;font-size:15px}.chat-tabs span,.chat-tabs b{padding:3px 5px}.chat-tabs b{border-bottom:2px solid #c79b49}.stage:before{content:"";position:absolute;z-index:1;inset:0;pointer-events:none;background:linear-gradient(115deg,transparent 0 45%,rgba(255,211,130,.035) 52%,transparent 60%);mix-blend-mode:screen}.minimap-frame{backdrop-filter:blur(2px)}.quest,.chatbox,.world-routes span,.mmomenu button{backdrop-filter:blur(3px)}
