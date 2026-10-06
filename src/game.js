@@ -2,13 +2,16 @@
 const canvas=document.getElementById("game"),ctx=canvas.getContext("2d"),keys=new Set(),W=3000,H=1900;
 ctx.imageSmoothingEnabled=false;
 const classes={warrior:{name:"Guerrero",hp:140,mp:55,speed:195,atk:20,range:68,skills:["Corte circular","Embestida","Guardia","Furia"]},archer:{name:"Arquero",hp:100,mp:75,speed:225,atk:16,range:190,skills:["Disparo doble","Flecha veloz","Evasión","Lluvia"]},mage:{name:"Mago",hp:85,mp:120,speed:205,atk:24,range:165,skills:["Bola de fuego","Nova","Escudo arcano","Meteorito"]}};
-const p={x:540,y:660,r:13,cls:"warrior",hp:140,maxHp:140,mp:55,maxMp:55,speed:195,atk:20,range:68,level:1,xp:0,nextXp:100,gold:25,kills:0};\nlet inventory=[{name:"Poción menor",type:"potion",qty:2}],equipment={weapon:null,armor:null},questStage=0;
+const p={x:540,y:660,r:13,cls:"warrior",hp:140,maxHp:140,mp:55,maxMp:55,speed:195,atk:20,range:68,level:1,xp:0,nextXp:100,gold:25,kills:0};
+let inventory=[{name:"Poción menor",type:"potion",qty:2}],equipment={weapon:null,armor:null},questStage=0;
 const buildings=[{x:290,y:230,w:320,h:205,roof:"#5b75a4",name:"Posada"},{x:690,y:235,w:270,h:190,roof:"#a85b42",name:"Mercado"},{x:300,y:805,w:265,h:180,roof:"#8a6544",name:"Herrería"},{x:690,y:800,w:290,h:190,roof:"#657a50",name:"Casa del Gremio"}];
 const solids=[...buildings.map(b=>({x:b.x,y:b.y+75,w:b.w,h:b.h-75})),{x:495,y:490,w:95,h:95}];
 const npcs=[{x:785,y:465,name:"Mira",role:"Mercader",c:"#d9a65c"},{x:430,y:785,name:"Borin",role:"Herrero",c:"#b57b55"},{x:590,y:600,name:"Aldric",role:"Capitán",c:"#d9d3b5"}];
 const spawn=[["Slime",900,620,38,15,18,5],["Slime",980,720,38,15,18,5],["Lobo",1120,540,58,18,28,8],["Lobo",1200,780,58,18,28,8],["Goblin",1450,650,82,22,40,14],["Goblin",1540,820,82,22,40,14],["Esqueleto",1800,570,110,27,55,20],["Esqueleto",1880,850,110,27,55,20],["Orco",2150,720,155,34,80,28],["Orco",2300,930,155,34,80,28]];
 const enemies=spawn.map(([type,x,y,hp,atk,xp,gold])=>({type,x,y,homeX:x,homeY:y,r:15,hp,maxHp:hp,atk,xp,gold,dead:false,hit:0}));
-let cam={x:0,y:0},last=performance.now(),cool=[0,0,0,0,0],flash=0,questKills=0;\nconst shop=[{name:"Poción menor",type:"potion",price:12},{name:"Espada de hierro",type:"weapon",price:65,atk:6},{name:"Arco de cazador",type:"weapon",price:65,atk:6},{name:"Bastón de aprendiz",type:"weapon",price:65,atk:6},{name:"Armadura de cuero",type:"armor",price:80,hp:20}];
+enemies.push({type:"Rey Goblin",x:1620,y:1250,homeX:1620,homeY:1250,r:25,hp:420,maxHp:420,atk:38,xp:180,gold:100,dead:false,hit:0});
+let cam={x:0,y:0},last=performance.now(),cool=[0,0,0,0,0],flash=0,questKills=0;
+const shop=[{name:"Poción menor",type:"potion",price:12},{name:"Espada de hierro",type:"weapon",price:65,atk:6},{name:"Arco de cazador",type:"weapon",price:65,atk:6},{name:"Bastón de aprendiz",type:"weapon",price:65,atk:6},{name:"Armadura de cuero",type:"armor",price:80,hp:20}];
 function hitSolid(x,y){return solids.some(o=>x+p.r>o.x&&x-p.r<o.x+o.w&&y+p.r>o.y&&y-p.r<o.y+o.h)}
 function move(dt){let dx=(keys.has("d")||keys.has("arrowright"))-(keys.has("a")||keys.has("arrowleft")),dy=(keys.has("s")||keys.has("arrowdown"))-(keys.has("w")||keys.has("arrowup"));if(!dx&&!dy)return;let l=Math.hypot(dx,dy);dx=dx/l*p.speed*dt;dy=dy/l*p.speed*dt;let nx=Math.max(p.r,Math.min(W-p.r,p.x+dx));if(!hitSolid(nx,p.y))p.x=nx;let ny=Math.max(p.r,Math.min(H-p.r,p.y+dy));if(!hitSolid(p.x,ny))p.y=ny}
 function target(range){let best=null,d0=range;for(const e of enemies){if(e.dead)continue;let d=Math.hypot(e.x-p.x,e.y-p.y);if(d<d0){d0=d;best=e}}return best}
