@@ -59,6 +59,15 @@ create(){
  [[545,410],[865,305],[330,505],[735,190]].forEach(p=>{this.add.ellipse(p[0],p[1]+32,58,18,0x000000,.28).setDepth(p[1]-2);this.add.circle(p[0],p[1]-55,5,0xffd875,.9).setStrokeStyle(2,0x4b3518).setDepth(p[1]+80)});
  this.cursors=this.input.keyboard.createCursorKeys();this.keys=this.input.keyboard.addKeys("W,A,S,D,E,ONE,TWO,THREE,FOUR");this.mobile={x:0,y:0};this.input.addPointer(2);
  this.cameras.main.startFollow(this.player,true,.08,.08);this.cameras.main.setBounds(0,0,1280,1280);this.cameras.main.setZoom(1.16);this.cameras.main.setFollowOffset(0,-175);
+ // Arquitectura semi-realista: zócalos, aleros, piedra y volumen para romper fachadas planas.
+ [[205,185],[1075,185],[205,555],[1075,555]].forEach((p,i)=>{
+   this.add.rectangle(p[0]+12,p[1]+72,286,34,0x1d1712,.30).setDepth(p[1]-5);
+   this.add.rectangle(p[0],p[1]+52,270,28,0x75644e,.92).setStrokeStyle(3,0x3f352a,.9).setDepth(p[1]+3);
+   this.add.rectangle(p[0],p[1]-62,292,18,i%2?0x3c4653:0x493a2d,.96).setStrokeStyle(3,0x241f1a,.9).setDepth(p[1]+4);
+   [-78,0,78].forEach(dx=>{this.add.rectangle(p[0]+dx,p[1]-12,38,52,0x253238,.86).setStrokeStyle(4,0xb18b4e,.9).setDepth(p[1]+5);this.add.circle(p[0]+dx,p[1]-12,16,0xffcf72,.055).setBlendMode(Phaser.BlendModes.ADD).setDepth(p[1]+6)});
+ });
+ // Piedra lateral y bordes de avenida para reforzar la perspectiva vertical 2.5D.
+ for(let y=740;y<=1120;y+=76){this.add.rectangle(424,y,42,58,0x746b5b,.92).setStrokeStyle(2,0x443d34,.8).setDepth(y-2);this.add.rectangle(856,y,42,58,0x746b5b,.92).setStrokeStyle(2,0x443d34,.8).setDepth(y-2)}
  // Segunda capa del nuevo estándar: luz direccional, profundidad y foco visual sobre el héroe.
  this.add.ellipse(640,500,520,330,0xffc66d,.035).setBlendMode(Phaser.BlendModes.ADD).setDepth(90);
  this.add.ellipse(640,735,680,170,0x000000,.12).setDepth(89);
