@@ -24,6 +24,11 @@ create(){
  this.add.circle(640,286,46,0xffe9aa,.09).setBlendMode(Phaser.BlendModes.ADD).setDepth(341);
  [[470,295],[810,295],[470,425],[810,425]].forEach((p,i)=>{this.add.image(p[0],p[1],"bannerArt").setScale(.72).setDepth(p[1]+12);this.add.circle(p[0],p[1]+35,38,0xffc86a,.05).setBlendMode(Phaser.BlendModes.ADD).setDepth(p[1]+5)});
  this.add.text(640,455,"FUENTE DE LOS FUNDADORES",{fontFamily:"Georgia",fontSize:"13px",letterSpacing:2,color:"#ead7a2",stroke:"#000",strokeThickness:4}).setOrigin(.5).setDepth(500);
+ // Identidad visual de los cuatro distritos principales de la capital.
+ const district=(x,y,title,sub,icon)=>{this.add.rectangle(x,y,250,58,0x17120d,.86).setStrokeStyle(3,0xb89450,.92).setDepth(690);this.add.text(x-102,y-12,icon,{fontSize:"26px"}).setOrigin(.5).setDepth(692);this.add.text(x-72,y-19,title,{fontFamily:"Georgia",fontSize:"15px",color:"#f0d99d",stroke:"#000",strokeThickness:3}).setDepth(692);this.add.text(x-72,y+4,sub,{fontFamily:"Georgia",fontSize:"10px",color:"#bcae8d"}).setDepth(692)};
+ district(205,130,"POSADA","El Ciervo Dorado","♜");district(1075,130,"MERCADO","Galería de Lumen","⚖");district(205,640,"HERRERÍA","Forja de Borin","⚒");district(1075,640,"GREMIO","Casa de Aventureros","◆");
+ [[120,165],[290,165],[990,165],[1160,165],[120,590],[290,590],[990,590],[1160,590]].forEach((p,i)=>{this.add.rectangle(p[0],p[1],54,92,i%2?0x24466f:0x6f2830,.92).setStrokeStyle(3,0xc6a257,.95).setDepth(p[1]+7);this.add.text(p[0],p[1],"✦",{fontSize:"24px",color:"#e5c66d"}).setOrigin(.5).setDepth(p[1]+8)});
+ [[145,218],[270,218],[1010,218],[1135,218],[145,535],[270,535],[1010,535],[1135,535]].forEach(p=>{this.add.rectangle(p[0],p[1],62,34,0x17242a,.88).setStrokeStyle(4,0xb48b4e,.95).setDepth(p[1]+9);this.add.circle(p[0],p[1],12,0xffd77d,.13).setBlendMode(Phaser.BlendModes.ADD).setDepth(p[1]+10)});
  // Profundidad 2.5D alrededor de la plaza: terrazas, escalinatas, toldos y luz arquitectónica.
  [[210,250,300,34],[1070,250,300,34],[210,565,300,34],[1070,565,300,34]].forEach(([x,y,w,h])=>{this.add.rectangle(x,y,w,h,0x2d241b,.35).setDepth(y-3);this.add.rectangle(x,y-12,w-18,h,0xb3a17c,.92).setStrokeStyle(3,0x564a38,.85).setDepth(y-2)});
  [[350,235],[930,235],[350,545],[930,545]].forEach(p=>{for(let i=0;i<3;i++)this.add.rectangle(p[0],p[1]+i*11,92+i*18,8,0x8f8168,.96).setStrokeStyle(1,0x554b3d,.8).setDepth(p[1]+i)});
