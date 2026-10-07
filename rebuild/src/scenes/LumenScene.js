@@ -24,6 +24,12 @@ create(){
  this.add.circle(640,286,46,0xffe9aa,.09).setBlendMode(Phaser.BlendModes.ADD).setDepth(341);
  [[470,295],[810,295],[470,425],[810,425]].forEach((p,i)=>{this.add.image(p[0],p[1],"bannerArt").setScale(.72).setDepth(p[1]+12);this.add.circle(p[0],p[1]+35,38,0xffc86a,.05).setBlendMode(Phaser.BlendModes.ADD).setDepth(p[1]+5)});
  this.add.text(640,455,"FUENTE DE LOS FUNDADORES",{fontFamily:"Georgia",fontSize:"13px",letterSpacing:2,color:"#ead7a2",stroke:"#000",strokeThickness:4}).setOrigin(.5).setDepth(500);
+ // Capa atmosférica móvil: sombras largas, vegetación integrada y luz cálida de ciudad.
+ [[205,185,300,155],[1075,185,300,155],[205,555,300,170],[1075,555,300,170]].forEach(([x,y,w,h])=>this.add.ellipse(x+18,y+54,w*.9,h*.34,0x000000,.24).setDepth(y-8));
+ [[355,180],[925,180],[350,565],[930,565],[430,700],[850,700],[335,820],[945,820]].forEach((p,i)=>{this.add.circle(p[0],p[1]+34,46,0x000000,.18).setDepth(p[1]-3);this.add.image(p[0],p[1],"oakArt").setScale(.42+(i%2)*.05).setDepth(p[1]+5)});
+ [[420,255],[860,255],[420,500],[860,500],[445,815],[835,815],[445,980],[835,980]].forEach(p=>{this.add.circle(p[0],p[1],58,0xffb34f,.045).setBlendMode(Phaser.BlendModes.ADD).setDepth(p[1]-2);this.add.circle(p[0],p[1],19,0xffd787,.08).setBlendMode(Phaser.BlendModes.ADD).setDepth(p[1]-1)});
+ [[405,690],[875,690],[405,850],[875,850],[405,1010],[875,1010]].forEach(p=>this.add.image(p[0],p[1],"bedArt").setScale(.55).setDepth(p[1]+4));
+ this.add.rectangle(640,704,440,12,0x211b16,.32).setDepth(704);this.add.rectangle(640,1090,440,16,0x211b16,.34).setDepth(1090);
  // Identidad visual de los cuatro distritos principales de la capital.
  const district=(x,y,title,sub,icon)=>{this.add.rectangle(x,y,250,58,0x17120d,.86).setStrokeStyle(3,0xb89450,.92).setDepth(690);this.add.text(x-102,y-12,icon,{fontSize:"26px"}).setOrigin(.5).setDepth(692);this.add.text(x-72,y-19,title,{fontFamily:"Georgia",fontSize:"15px",color:"#f0d99d",stroke:"#000",strokeThickness:3}).setDepth(692);this.add.text(x-72,y+4,sub,{fontFamily:"Georgia",fontSize:"10px",color:"#bcae8d"}).setDepth(692)};
  district(205,130,"POSADA","El Ciervo Dorado","♜");district(1075,130,"MERCADO","Galería de Lumen","⚖");district(205,640,"HERRERÍA","Forja de Borin","⚒");district(1075,640,"GREMIO","Casa de Aventureros","◆");
