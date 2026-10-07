@@ -24,6 +24,13 @@ create(){
  this.add.circle(640,286,46,0xffe9aa,.09).setBlendMode(Phaser.BlendModes.ADD).setDepth(341);
  [[470,295],[810,295],[470,425],[810,425]].forEach((p,i)=>{this.add.image(p[0],p[1],"bannerArt").setScale(.72).setDepth(p[1]+12);this.add.circle(p[0],p[1]+35,38,0xffc86a,.05).setBlendMode(Phaser.BlendModes.ADD).setDepth(p[1]+5)});
  this.add.text(640,455,"FUENTE DE LOS FUNDADORES",{fontFamily:"Georgia",fontSize:"13px",letterSpacing:2,color:"#ead7a2",stroke:"#000",strokeThickness:4}).setOrigin(.5).setDepth(500);
+ // Profundidad 2.5D alrededor de la plaza: terrazas, escalinatas, toldos y luz arquitectónica.
+ [[210,250,300,34],[1070,250,300,34],[210,565,300,34],[1070,565,300,34]].forEach(([x,y,w,h])=>{this.add.rectangle(x,y,w,h,0x2d241b,.35).setDepth(y-3);this.add.rectangle(x,y-12,w-18,h,0xb3a17c,.92).setStrokeStyle(3,0x564a38,.85).setDepth(y-2)});
+ [[350,235],[930,235],[350,545],[930,545]].forEach(p=>{for(let i=0;i<3;i++)this.add.rectangle(p[0],p[1]+i*11,92+i*18,8,0x8f8168,.96).setStrokeStyle(1,0x554b3d,.8).setDepth(p[1]+i)});
+ [[1005,295],[1090,305],[1165,320]].forEach((p,i)=>{let s=this.add.image(p[0],p[1],"stallArt").setScale(.72+i*.03).setDepth(p[1]+22);this.add.circle(p[0],p[1]+5,52,0xffc45d,.045).setBlendMode(Phaser.BlendModes.ADD).setDepth(p[1]+10)});
+ [[275,290],[1000,470],[275,470]].forEach(p=>{this.add.image(p[0],p[1],"cratesArt").setScale(.7).setDepth(p[1]+15)});
+ [[315,205],[965,205],[315,520],[965,520]].forEach(p=>{this.add.circle(p[0],p[1],74,0xffc968,.055).setBlendMode(Phaser.BlendModes.ADD).setDepth(p[1]-4);this.add.image(p[0],p[1],"lanternArt").setScale(.82).setDepth(p[1]+14)});
+
  this.add.image(640,1215,"gateArt").setScale(.82).setFlipY(false).setDepth(1220);
  this.add.text(640,1160,"SUR · TIERRAS SALVAJES",{fontFamily:"Georgia",fontSize:"12px",color:"#e8d39a",backgroundColor:"#15120fbb",padding:{x:10,y:5}}).setOrigin(.5).setDepth(1230);
  [[1000,245],[1110,270],[1185,315]].forEach((p,i)=>this.add.image(p[0],p[1],"stallArt").setScale(.62).setDepth(p[1]+5));
