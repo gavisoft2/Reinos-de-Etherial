@@ -59,6 +59,10 @@ create(){
  [[545,410],[865,305],[330,505],[735,190]].forEach(p=>{this.add.ellipse(p[0],p[1]+32,58,18,0x000000,.28).setDepth(p[1]-2);this.add.circle(p[0],p[1]-55,5,0xffd875,.9).setStrokeStyle(2,0x4b3518).setDepth(p[1]+80)});
  this.cursors=this.input.keyboard.createCursorKeys();this.keys=this.input.keyboard.addKeys("W,A,S,D,E,ONE,TWO,THREE,FOUR");this.mobile={x:0,y:0};this.input.addPointer(2);
  this.cameras.main.startFollow(this.player,true,.08,.08);this.cameras.main.setBounds(0,0,1280,1280);this.cameras.main.setZoom(1.16);this.cameras.main.setFollowOffset(0,-175);
+ // Suelo orgánico 2.5D: adoquines irregulares, bordes de musgo y transición jardín/calle.
+ for(let y=735;y<1135;y+=54){for(let x=470;x<830;x+=58){let ox=((y/54)%2)*22;this.add.ellipse(x+ox,y,50,24,0x8f8778,.24).setStrokeStyle(1,0xc0b6a1,.16).setDepth(3)}}
+ [[430,760],[850,760],[430,850],[850,850],[430,950],[850,950],[430,1050],[850,1050]].forEach((p,i)=>{this.add.ellipse(p[0],p[1],72,30,0x263d28,.72).setDepth(p[1]-4);this.add.image(p[0]+(i%2?10:-10),p[1]-8,"grassTuft").setScale(.75).setAlpha(.82).setDepth(p[1]-2)});
+ [[340,735],[940,735],[335,900],[945,900],[345,1080],[935,1080]].forEach(p=>{this.add.image(p[0],p[1],"bedArt").setScale(.68).setDepth(p[1]+3);this.add.circle(p[0],p[1],44,0x9bc56c,.035).setBlendMode(Phaser.BlendModes.ADD).setDepth(p[1]+2)});
  // Arquitectura semi-realista: zócalos, aleros, piedra y volumen para romper fachadas planas.
  [[205,185],[1075,185],[205,555],[1075,555]].forEach((p,i)=>{
    this.add.rectangle(p[0]+12,p[1]+72,286,34,0x1d1712,.30).setDepth(p[1]-5);
